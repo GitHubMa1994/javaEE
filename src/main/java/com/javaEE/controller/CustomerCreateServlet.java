@@ -16,7 +16,11 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/costumer_create")
 public class CustomerCreateServlet extends HttpServlet {
 
-	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 852551420070201926L;
+
 	/**
 	 * 进入 创建客户 界面
 	 */

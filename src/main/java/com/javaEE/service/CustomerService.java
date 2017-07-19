@@ -1,6 +1,7 @@
 package com.javaEE.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.javaEE.model.Customer;
 
@@ -20,6 +21,22 @@ public class CustomerService {
 	public Customer getCustomer(long id){
 		//TODO
 		return null;
+	}
+	
+	/**
+	 * 创建客户
+	 */
+	public boolean createCustomer(Map<String,Object> feilMap){
+		//TODO
+		return false;
+	}
+	
+	/**
+	 * 更新客户
+	 */
+	public boolean updateCustomer(long id,Map<String,Object> feilMap){
+		//TODO
+		return false;
 	}
 	
 	/**

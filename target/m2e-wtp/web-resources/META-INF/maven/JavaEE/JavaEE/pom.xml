@@ -8,8 +8,8 @@
 	<name>JavaEE Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
-		<!--有些依赖只需参与编辑，而无需打包（如tomcat的Servlet，JSP） 将scope设置为provided  -->
-		<!-- 有些依赖运行时需要  将scope设置为runtime -->
+		<!--有些依赖只需参与编辑，而无需打包（如tomcat的Servlet，JSP） 将scope设置为provided -->
+		<!-- 有些依赖运行时需要 将scope设置为runtime -->
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -31,6 +31,38 @@
 			<version>1.2</version>
 			<scope>runtime</scope>
 		</dependency>
+		<!-- JUnit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+		<!--slf4j -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.7</version> 
+		</dependency>
+		<!-- MySQL -->
+		<dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.38</version>
+        </dependency>
+        <!-- Apache Commons Lang -->
+		<dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.3.2</version>
+        </dependency>
+        <!-- Apache Commons Collections -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.0</version>
+        </dependency>
+        
 	</dependencies>
 	<!-- 统一源代码的编码格式 UTF-8 -->
 	<properties>

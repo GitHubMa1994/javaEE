@@ -1,0 +1,93 @@
+package com.javaEE.util;
+
+
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.Properties;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+/**
+ * 读取配置文件
+ * @author mwb
+ */
+public final class PropsUtil {
+	
+	private static final Logger LOGGER=LoggerFactory.getLogger(PropsUtil.class);
+	
+	/**
+	 * 加载类属性文件
+	 */
+	public static Properties loadProps(String fileName){
+		Properties props=null;
+		InputStream is =null;
+		try {
+			is =Thread.currentThread().getContextClassLoader().getResourceAsStream(fileName);
+			if (is==null) {
+				throw new FileNotFoundException(fileName+" file is not found");
+			}
+			props=new Properties();
+			props.loadFromXML(is);
+		} catch (Exception e) {
+			LOGGER.error("load properties file failure",e);
+		}finally{
+			if (is!=null) {
+				try {
+					is.close();
+				} catch (Exception e) {
+					LOGGER.error("colse input stream failure", e);
+				}
+			}
+		}
+		return props;
+	}
+	
+	/**
+	 * 获取字符串属性(默认值为空字符串)
+	 */
+	public static String getString(Properties props,String key){
+		return getString(props, key,"");
+	}
+	
+
+	/**
+	 * 获取字符串属性(指定默认值)
+	 */
+	public static String getString(Properties props,String key,String defaultValue){
+		String value=defaultValue;
+		if (props.containsKey(key)) {
+			value=props.getProperty(key);
+		}
+		return value;
+	}
+	
+	/**
+	 * 获取数值型属性(默认值为0)
+	 */
+	//TODO
+	
+	/**
+	 * 获取数值型属性(指定默认值)
+	 */
+	public static int getInt(Properties props,String key,int defaultValue){
+		int value=defaultValue;
+		if (props.containsKey(key)) {
+			//TODO
+		}
+		return value;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
