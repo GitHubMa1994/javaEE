@@ -1,6 +1,7 @@
 package com.javaEE.test;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.junit.Assert;
@@ -29,6 +30,12 @@ public class CustomerServiceTest {
 	
 	@Test
 	public void getCustomerListTest() throws Exception{
+		List<Customer> customers=customerService.getCustomerList();
+		Assert.assertEquals(2, customers.size());
+	}
+	
+	@Test
+	public void getCustomerTest() throws Exception{
 		long id=1;
 		Customer customer=customerService.getCustomer(id);
 		Assert.assertNotNull(customer);

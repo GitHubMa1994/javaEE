@@ -2,6 +2,7 @@ package com.javaEE.util;
 
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
@@ -28,14 +29,14 @@ public final class PropsUtil {
 				throw new FileNotFoundException(fileName+" file is not found");
 			}
 			props=new Properties();
-			props.loadFromXML(is);
-		} catch (Exception e) {
+			props.load(is);
+		} catch (IOException e) {
 			LOGGER.error("load properties file failure",e);
 		}finally{
 			if (is!=null) {
 				try {
 					is.close();
-				} catch (Exception e) {
+				} catch (IOException e) {
 					LOGGER.error("colse input stream failure", e);
 				}
 			}
@@ -65,7 +66,9 @@ public final class PropsUtil {
 	/**
 	 * 获取数值型属性(默认值为0)
 	 */
-	//TODO
+	public static int getInt(Properties props,String key){
+		return getInt(props, key,0);
+	}
 	
 	/**
 	 * 获取数值型属性(指定默认值)
@@ -73,7 +76,24 @@ public final class PropsUtil {
 	public static int getInt(Properties props,String key,int defaultValue){
 		int value=defaultValue;
 		if (props.containsKey(key)) {
-			//TODO
+			value=CastUtil.castInt(props.getProperty(key), defaultValue);
+		}
+		return value;
+	}
+	
+	/**
+	 * 获取boolean型（默认值为false）
+	 */
+	public static boolean getBoolean(Properties props,String key){
+		return getBoolean(props, key, false);
+	}
+	/**
+	 * 获取boolean型（指定默认值）
+	 */
+	public static boolean getBoolean(Properties props,String key,boolean defaultValue){
+		boolean value=defaultValue;
+		if (props.containsKey(key)) {
+			value=CastUtil.castBoolean(props.getProperty(key), defaultValue);
 		}
 		return value;
 	}
