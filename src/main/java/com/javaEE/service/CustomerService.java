@@ -12,8 +12,6 @@ import com.javaEE.model.Customer;
 public class CustomerService {
 	private static final Logger LOGGER=LoggerFactory.getLogger(CustomerService.class);
 	
-
-
 	/**
 	 * 获取客户列表
 	 */
